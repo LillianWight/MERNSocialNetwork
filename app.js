@@ -18,12 +18,14 @@ mongoose.connection.on("error", (err) => {
 
 //ROUTES
 const postRoutes = require("./routes/post");
+const authRoutes = require("./routes/auth");
 
 //MIDDLEWARE
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(expressValidator());
 app.use("/", postRoutes);
+app.use("/", authRoutes);
 
 //START SERVER
 const port = process.env.PORT || 5309;
