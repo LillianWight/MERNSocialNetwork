@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const expressValidator = require("express-validator");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
@@ -24,6 +25,7 @@ const authRoutes = require("./routes/auth");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(expressValidator());
+app.use(cookieParser());
 app.use("/", postRoutes);
 app.use("/", authRoutes);
 
